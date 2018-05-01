@@ -1,0 +1,29 @@
+{
+  "name": "jquery-bootstrap-in-action",
+  "homepage": "https://github.com/preatiry/exercise",
+  "authors": [
+    "yhj <601525993@qq.com>"
+  ],
+  "description": "test bower by using jquery & bootstrap",
+  "main": "",
+  "keywords": [
+    "jquery",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "angular": "^1.6.9"
+  },
+  "devDependencies": {
+    "angular": "^1.6.9"
+  }
+}
