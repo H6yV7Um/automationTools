@@ -14,3 +14,23 @@ gem install compass
 ````
 compass create <myproject>
 ````
+````
+compass compile
+````
+````
+compass watch
+````
+
+# normalize
+
+[normalize](http://necolas.github.io/normalize.css/)
+[github](https://github.com/necolas/normalize.css)
+````
+gem install compass-normalize
+````
+````
+npm install normalize.css
+````
+````
+compass interactive
+````

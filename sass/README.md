@@ -32,7 +32,4 @@ brew install --devel sass/sass/sass
 ````
 sass-convert main.scss main.sass
 ````
-````
-compass watch
-````
 

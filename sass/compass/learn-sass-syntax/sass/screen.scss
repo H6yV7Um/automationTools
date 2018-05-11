@@ -1,16 +1,16 @@
 /**
  * @charset "UTF-8";
  */
-
+//
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
+//
 /**
  * css import
  */
-
+//
 /**
  * .css
  * http://
@@ -18,13 +18,9 @@
  * media queries
  * control directives
  */
-
-/**
- *
- *
- *
- *
- *
+//
+/*!
+ * CONTENTS
  *
  * SETTINGS
  * variables.......................变量集中存储文件
@@ -41,16 +37,87 @@
  * BASE
  * screen.scss.....................针对当前站点主页的样式修饰
  */
+//
+@import "variables", "mixin";
+//@import "normalize-version";
+///* 分割线1 */
+//@import "normalize/base";
+///* 分割线2 */
+//@import "normalize/html5";
+///* 分割线3 */
+//@import "normalize/links";
+//@import "compass/reset/utilities";
+////@include global-reset();
+////@include global-reset;
+//
+//@import "compass/reset";
+//@import "compass/layout";
+//@import "compass/layout/grid-background";
+//@import "compass/layout/sticky-footer";
+//@import "compass/layout/stretching";
+//.stretch-full {
+//  //@include stretch();
+//  //@include stretch(5px, 6px, 7px, 8px);
+//  @include stretch($offset-top:3px,$offset-bottom:4px);
+//}
+//@include sticky-footer(30px);
+//
+//$grid-background-column-color: rgba(255, 0, 0, .25);
+//
+//#root {
+//  @include grid-background();
+//}
+//@include sticky-footer(30px, "#my-root", "#my-root-footer", "#my-footer");
+//
+//.text-reset-box-model {
+//  //@include reset-box-model;
+//}
+@import "compass/css3";
+@import "compass/support";
 
+@debug browsers();
 
-@import "variables" , "compass/reset" , "mixin";
+//$supported-browsers:chrome firefox;
+//$supported-browsers:chrome,firefox;
+//$supported-browsers:chrome;
+
+$browser-minimum-versions: ("ie":"6");
+//$browser-minimum-versions: ("ie":null, "chrome":null);
+
+div {
+  //appearance: button;
+
+  @include appearance("button");
+}
+
+.test-inline-block {
+  @include inline-block();
+}
+
+.test-opacity {
+  @include opacity(.3);
+}
 
 /**
  * load_path
  * Normalize
  * 重置样式
  */
-//@import "compass/reset";
+@import "compass/reset";
+
+//@import "compass/typography";
+@import "compass/typography/links";
+//@import "compass/typography/lists";
+@import "compass/typography/text";
+//@import "compass/typography/vertical_rhythm";
+
+@import "compass/utilities/color";
+@import "compass/utilities/print";
+@import "compass/utilities/tables";
+
+//@import "icons";
+
+@include print-utilities(screen);
 
 .headline {
   font-family: $main-sec-ff;
@@ -59,10 +126,14 @@
 .main-sec {
   font-family: $main-sec-ff;
 
+  @include box-shadow(1px 1px 3px 2px #cfcecf);
+  //-webkit-box-shadow: 1px 1px 3px 2px #cfcecf;
+  //-moz-box-shadow: 1px 1px 3px 2px #cfcecf;
+
   @at-root {
 	.main-sec-headline {
-	  font:{
-		family:$main-sec-ff;
+	  font: {
+		family: $main-sec-ff;
 		size: 16px;
 	  }
 	}
@@ -70,34 +141,32 @@
 
   @at-root {
 	.main-sec-detail {
-	  font-size:12px;
-	  height:(500px /2);
+	  font-size: 12px;
+	  height: (500px /2);
 	}
   }
 
   //.headline{
-	//font:{
-	//  family:$main-sec-ff;
-	//  size: 16px;
-	//}
+  //font:{
+  //  family:$main-sec-ff;
+  //  size: 16px;
+  //}
   //}
   //
   //.detail{
-	//font-size:12px;
-	//height:(500px /2);
+  //font-size:12px;
+  //height:(500px /2);
   //}
 }
 
-
-
-a{
-  &:hover{
-	color:blue;
+a {
+  &:hover {
+	color: blue;
   }
 }
 
 p {
-  color:hsl(270,100%,50%)
+  color: hsl(270, 100%, 50%)
 }
 
 //@function
@@ -105,12 +174,12 @@ p {
 //
 //}
 
-.webdemo-sec{
+.webdemo-sec {
   //@include col-6(50%);
 
   @include col-sm(30);
 
-  &:hover{
+  &:hover {
 	background-color: #f5f5f5;
   }
 }
@@ -123,7 +192,6 @@ p {
   font-size: 12px;
 }
 
-
 .error {
   @extend %errors;
   color: #f00;
@@ -135,4 +203,168 @@ p {
    */
   @extend .error;
   border: 1px #f00;
+}
+
+.reset-sec {
+  //@include nested-reset;
+}
+
+.text-line-block {
+  display: block;
+}
+
+//@include reset-display('.text-line-block');
+//@include reset-display('.text-line-block',true);
+
+a {
+  //@include hover-link();
+  //@include link-colors(#00c, #0cc, #c0c, #ccc, #cc0);
+  @include unstyled-link();
+}
+
+//.list-unstyled{
+//  @include no-bullets();
+//}
+//
+//.list-unstyled-li{
+//  @include no-bullet();
+//}
+//
+//.list-inline{
+//  @include inline-list();
+//}
+//
+//.list-horizontal{
+//  @include horizontal-list();
+//  @include horizontal-list(0,right);
+//  @include horizontal-list(false);
+//}
+//
+//.list-inline-block{
+//  @include inline-block-list();
+//}
+//
+
+.text-force-wrap {
+  @include force-wrap();
+}
+
+.text-nowrap {
+  @include nowrap();
+}
+
+$use-mozilla-ellipsis-binding: true;
+.text-ellipsis {
+  @include ellipsis();
+}
+
+.text-hide {
+  //@include hide-text();
+  @include squish-text();
+}
+
+//http://cdn.qq.com/images/find-btn.png
+.btn-find {
+  @include replace-text("http://cdn.qq.com/images/find-btn.png");
+  //@include replace-text-with-dimensions("http://cd.qq.com/images/find-btn.png");
+}
+
+//16*1.5=24
+$base-font-size: 16px;
+$base-line-height: 24px;
+//@include establish-baseline();
+
+//body {
+//  @include debug-vertical-alignment();
+//}
+
+//h1{
+//  //font-size: 3em;
+//  //line-height: 1.5em;
+//
+//  @include adjust-font-size-to(48px);
+//}
+//h2{
+//  @include adjust-font-size-to(36px);
+//}
+//h3{
+//  @include adjust-font-size-to(24px);
+//}
+//h4{
+//  @include adjust-font-size-to(21px);
+//}
+//h5{
+//  @include adjust-font-size-to(18px);
+//}
+//h6{
+//  @include adjust-font-size-to(16px);
+//}
+//p{
+//  @include adjust-font-size-to(16px);
+//
+//  @include leader();
+//  @include trailer();
+//  @include leader(2);
+//  @include trailer(3);
+//}
+
+.analyzer-logo {
+  //background-image: inline_image("smile.jpg");
+
+  /* cache buster */
+  //background-image: url("../images/smile.jpg?t=23524023");
+
+  background-image: image-url("smile.jpg");
+}
+
+@debug compass_env();
+
+//@debug font-files("stxihei.ttf");
+@include font-face("stxihei", font-files("stxihei.ttf"));
+
+#{append-selector("p,div,span",".bar")} {
+  color: #000;
+}
+
+//@debug brightness(#000);
+
+.goods-price {
+  $table-color: #7a98c6;
+  @include outer-table-borders();
+  @include inner-table-borders(1px, darken($table-color, 40%));
+
+  @include table-scaffolding();
+
+  @include alternating-rows-and-columns($table-color, adjust_hue($table-color, -120deg), #222222);
+}
+
+.clearfix {
+  //  @include clearfix();
+  //  @include pie-clearfix();
+  //  @include legacy-pie-clearfix();
+
+}
+
+.pull-left {
+  float: left;
+  display: inline;
+  //@include float(left);
+}
+
+@debug omitted_usage("ie", "8");
+
+.need-has-layout{
+  @include has-layout();
+}
+
+.undersore-hack-display{
+  @include underscore-hack(display,block,inline);
+}
+
+.text-min-height{
+  //@include min-height(10px);
+}
+
+.tag-cloud-container {
+  //@include tag-cloud(24px);
 }
